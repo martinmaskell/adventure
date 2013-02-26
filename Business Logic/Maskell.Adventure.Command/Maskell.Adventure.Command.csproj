@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4BCC9E89-F75A-4517-83D3-8F36647680D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maskell.Adventure.Command</RootNamespace>
+    <AssemblyName>Maskell.Adventure.Command</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\CommandActionHelper.cs" />
+    <Compile Include="Interfaces\ICommandActionHelper.cs" />
+    <Compile Include="Interfaces\ICommandActionManager.cs" />
+    <Compile Include="Interfaces\ICommandParser.cs" />
+    <Compile Include="Interfaces\ICommandResponseHelper.cs" />
+    <Compile Include="Managers\CommandActionManager.cs" />
+    <Compile Include="Parsers\CommandNoiseWordParser.cs" />
+    <Compile Include="Processors\CommandActionProcessor.cs" />
+    <Compile Include="Processors\DependencyProcessor.cs" />
+    <Compile Include="Processors\DependencyTypeProcessor.cs" />
+    <Compile Include="Interfaces\IDependencyTypeProcessor.cs" />
+    <Compile Include="Interfaces\IDependencyProcessor.cs" />
+    <Compile Include="Interfaces\ICommandActionProcessor.cs" />
+    <Compile Include="Responses\CommandNoiseWordParserResponse.cs" />
+    <Compile Include="Managers\CommandManager.cs" />
+    <Compile Include="Parsers\CommandParameterParser.cs" />
+    <Compile Include="Responses\CommandParameterParserResponse.cs" />
+    <Compile Include="Parsers\CommandParser.cs" />
+    <Compile Include="CommandResponseEventArgs.cs" />
+    <Compile Include="Managers\CommandResponseManager.cs" />
+    <Compile Include="Parsers\CommandTypeParser.cs" />
+    <Compile Include="Responses\CommandTypeParserResponse.cs" />
+    <Compile Include="Enumerators.cs" />
+    <Compile Include="Helpers\CommandNoiseWordHelper.cs" />
+    <Compile Include="Helpers\CommandResponseHelper.cs" />
+    <Compile Include="Interfaces\ICommandNoiseWordHelper.cs" />
+    <Compile Include="Interfaces\ICommandManager.cs" />
+    <Compile Include="Interfaces\ICommandResponseManager.cs" />
+    <Compile Include="Interfaces\ITextParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses\CommandActionResponse.cs" />
+    <Compile Include="Responses\CommandActionResponseEventArgs.cs" />
+    <Compile Include="Responses\DependencyTypeProcessorResponse.cs" />
+    <Compile Include="Responses\DependencyProcessorResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Maskell.Adventure.Common\Maskell.Adventure.Common.csproj">
+      <Project>{8F3E8970-FADE-4D9C-995B-DB4CBCA6C981}</Project>
+      <Name>Maskell.Adventure.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maskell.Adventure.DataManager\Maskell.Adventure.DataManager.csproj">
+      <Project>{9A9A5762-9727-47C2-8836-E329C6C04D8F}</Project>
+      <Name>Maskell.Adventure.DataManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maskell.Adventure.DomainEntities\Maskell.Adventure.DomainEntities.csproj">
+      <Project>{8BA08E27-6685-41C1-A6BB-741C1F5CB48D}</Project>
+      <Name>Maskell.Adventure.DomainEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maskell.Adventure.Module\Maskell.Adventure.Module.csproj">
+      <Project>{AF7AED02-6B69-4A53-98EC-D2BD5CF7E273}</Project>
+      <Name>Maskell.Adventure.Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

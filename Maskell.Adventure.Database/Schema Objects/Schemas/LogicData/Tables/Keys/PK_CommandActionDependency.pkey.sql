@@ -1,0 +1,3 @@
+﻿ALTER TABLE [LogicData].[CommandActionDependency]
+    ADD CONSTRAINT [PK_CommandActionDependency] PRIMARY KEY CLUSTERED ([CommandActionID] ASC, [DependencyID] ASC) WITH (ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, PAD_INDEX = OFF, IGNORE_DUP_KEY = OFF, STATISTICS_NORECOMPUTE = OFF);
+

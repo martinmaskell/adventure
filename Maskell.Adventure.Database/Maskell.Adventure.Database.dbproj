@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Maskell.Adventure.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectGuid>{67cbc824-a49e-4e9b-a947-360f3dfe65c3}</ProjectGuid>
+    <DSP>Microsoft.Data.Schema.Sql.Sql90DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>True</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabaseAddToServerExplorer>True</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <ServerPropertiesFile>
+    </ServerPropertiesFile>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Maskell.Adventure.Database</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <AllowServerObjects>False</AllowServerObjects>
+    <AllowDatabaseObjects>True</AllowDatabaseObjects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>Data Source=(local)\sqlexpress;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetDatabase>Adventure</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>True</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>Data Source=(local)\sqlexpress;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetDatabase>Adventure_Deploy</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>True</DeployToDatabase>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Schemas\dbo\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\Queues\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Statistics\" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Tables\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Views\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\LocationData\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Tables\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Views\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\LogicData\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\GameData\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Tables\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Views\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\GameData\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Tables\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Views\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\LookupData\Views\Statistics\" />
+    <Folder Include="Scripts\Post-Deployment\ReferenceData" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertiesFile Include="Properties\Database.sqlsettings">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqldeployment">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqlcmdvars">
+    </PropertiesFile>
+    <Build Include="Properties\Database.sqlpermissions">
+      <ModelBuilderType>Permissions</ModelBuilderType>
+    </Build>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql">
+      <SubType>Code</SubType>
+    </PreDeploy>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
+      <SubType>Code</SubType>
+    </PostDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Constraints\DF_Direction_GameID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Constraints\DF_LocationItem_LocationID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Constraints\DF_LocationItem_ItemID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Constraints\DF_LocationDirection_DirectionID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Constraints\DF_LocationCommandAction_LocationID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Constraints\DF_Game_GameID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Constraints\DF_Game_DateCreated.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Constraints\DF_Item_ItemID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Constraints\DF_Location_LocationID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Files\Adventure_log.sqlfile.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Files\Adventure.sqlfile.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_Dependency_DependencyType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_Command_CommandType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_ActionGroup_Action.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandActionDependency_CommandAction.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandTypeDirectionDependency_Dependency.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Keys\FK_ItemProperty_Item.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Keys\FK_ItemProperty_PropertyDataType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\FK_LocationItem_Item.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\FK_LocationItem_Location.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\FK_LocationDirection_Direction.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\FK_LocationDirection_Location.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\FK_LocationDirection_Location1.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_LocationCommandAction_CommandAction.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_LocationCommandAction_Location.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Keys\FK_Game_Location.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandAction_ActionGroup.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandAction_Command.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandAction_Game.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandActionResponse_CommandAction.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandActionResponse_CommandAction1.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Keys\FK_Item_Game.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\FK_Location_Game.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandActionParameter_CommandAction.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandParameterType_Command.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\FK_CommandParameterType_ParameterType1.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\PK_Direction.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\Keys\PK_ParameterType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\Keys\PK_PropertyType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_Dependency.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_Command.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_ActionGroup.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_CommandActionDependency.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Keys\PK_ItemProperty.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\PK_LocationItem.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\PK_LocationDirection_1.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_LocationCommandAction.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Keys\PK_Game.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_CommandAction.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_CommandTypeDirectionResponse.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Keys\PK_Item.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Keys\PK_Location.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_CommandActionParameter.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Keys\PK_CommandParameterType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\Keys\PK_DependencyType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\Keys\PK_CommandType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\Keys\PK_Action.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Programmability\Stored Procedures\GetCommandAction.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Command.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\ActionGroup.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\CommandActionDependency.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\ItemProperty.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\LocationItem.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\LocationDirection.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\LocationCommandAction.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Game.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\CommandAction.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\CommandActionResponse.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\GameData\Tables\Item.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Location.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\CommandActionParameter.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\CommandParameterType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\DependencyType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\CommandType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\Action.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LocationData\Tables\Direction.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\ParameterType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LookupData\Tables\PropertyDataType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\LogicData\Tables\Dependency.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Service Broker\Routes\AutoCreatedLocal.route.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\GameData.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\LocationData.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\LogicData.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\LookupData.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Scripts\Post-Deployment\ReferenceData\LookupData.Action.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\ReferenceData\LookupData.CommandType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\ReferenceData\LookupData.DependencyType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\ReferenceData\LookupData.ParameterType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\ReferenceData\LookupData.PropertyDataType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\ReferenceData\LocationData.Direction.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+</Project>

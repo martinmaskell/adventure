@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Adventure" Class="LocationDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\sqlexpress;Initial Catalog=Adventure;Integrated Security=True" SettingsObjectName="Maskell.Adventure.DataAccess.LocationData.Properties.Settings" SettingsPropertyName="AdventureConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="LocationData.LocationItem" Member="LocationItems">
+    <Type Name="LocationItem">
+      <Column Name="LocationID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Location_LocationItem" Member="Location" ThisKey="LocationID" OtherKey="LocationID" Type="Location" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="LocationData.LocationDirection" Member="LocationDirections">
+    <Type Name="LocationDirection">
+      <Column Name="SourceLocationID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TargetLocationID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DirectionID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Location_LocationDirection" Member="SourceLocation" Storage="_Location" ThisKey="SourceLocationID" OtherKey="LocationID" Type="Location" IsForeignKey="true" />
+      <Association Name="Location_LocationDirection1" Member="TargetLocation" Storage="_Location1" ThisKey="TargetLocationID" OtherKey="LocationID" Type="Location" IsForeignKey="true" />
+      <Association Name="Direction_LocationDirection" Member="Direction" ThisKey="DirectionID" OtherKey="DirectionID" Type="Direction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="LocationData.Location" Member="Locations">
+    <Type Name="Location">
+      <Column Name="LocationID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GameID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LocationName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationDescription" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Location_LocationItem" Member="LocationItems" ThisKey="LocationID" OtherKey="LocationID" Type="LocationItem" />
+      <Association Name="Location_LocationDirection" Member="LocationDirections" ThisKey="LocationID" OtherKey="SourceLocationID" Type="LocationDirection" />
+      <Association Name="Location_LocationDirection1" Member="LocationDirections1" ThisKey="LocationID" OtherKey="TargetLocationID" Type="LocationDirection" />
+    </Type>
+  </Table>
+  <Table Name="LocationData.Direction" Member="Directions">
+    <Type Name="Direction">
+      <Column Name="DirectionID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DirectionName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ShortName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Direction_LocationDirection" Member="LocationDirections" ThisKey="DirectionID" OtherKey="DirectionID" Type="LocationDirection" />
+    </Type>
+  </Table>
+</Database>

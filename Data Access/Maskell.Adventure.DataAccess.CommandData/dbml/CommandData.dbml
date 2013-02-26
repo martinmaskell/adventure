@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Adventure" Class="CommandDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\sqlexpress;Initial Catalog=Adventure;Integrated Security=True" SettingsObjectName="Maskell.Adventure.DataAccess.CommandData.Properties.Settings" SettingsPropertyName="AdventureConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="LogicData.Command" Member="Commands">
+    <Type Name="Command">
+      <Column Name="CommandID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommandTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Command_CommandParameterType" Member="CommandParameterTypes" ThisKey="CommandID" OtherKey="CommandID" Type="CommandParameterType" />
+      <Association Name="Command_CommandAction" Member="CommandActions" ThisKey="CommandID" OtherKey="CommandID" Type="CommandAction" />
+    </Type>
+  </Table>
+  <Table Name="LogicData.Dependency" Member="Dependencies">
+    <Type Name="Dependency">
+      <Column Name="DependencyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DependencyTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DependencyElementID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="true" />
+      <Column Name="DependencyElementKey" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="true" />
+      <Column Name="DependencyElementValue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Dependency_CommandActionDependency" Member="CommandActionDependencies" ThisKey="DependencyID" OtherKey="DependencyID" Type="CommandActionDependency" />
+    </Type>
+  </Table>
+  <Table Name="LogicData.CommandParameterType" Member="CommandParameterTypes">
+    <Type Name="CommandParameterType">
+      <Column Name="CommandID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParameterTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommandParameterOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Command_CommandParameterType" Member="Command" ThisKey="CommandID" OtherKey="CommandID" Type="Command" IsForeignKey="true" />
+      <Association Name="ParameterType_CommandParameterType" Member="ParameterType" ThisKey="ParameterTypeID" OtherKey="ParameterTypeID" Type="ParameterType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="LookupData.ParameterType" Member="ParameterTypes">
+    <Type Name="ParameterType">
+      <Column Name="ParameterTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParameterTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ParameterType_CommandParameterType" Member="CommandParameterTypes" ThisKey="ParameterTypeID" OtherKey="ParameterTypeID" Type="CommandParameterType" />
+    </Type>
+  </Table>
+  <Table Name="LookupData.Action" Member="Actions">
+    <Type Name="Action">
+      <Column Name="ActionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActionName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Action_CommandActionAction" Member="CommandActionActions" ThisKey="ActionID" OtherKey="ActionID" Type="CommandActionAction" />
+    </Type>
+  </Table>
+  <Table Name="LogicData.CommandActionAction" Member="CommandActionActions">
+    <Type Name="CommandActionAction">
+      <Column Name="CommandActionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActionOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Action_CommandActionAction" Member="Action" ThisKey="ActionID" OtherKey="ActionID" Type="Action" IsForeignKey="true" />
+      <Association Name="CommandAction_CommandActionAction" Member="CommandAction" ThisKey="CommandActionID" OtherKey="CommandActionID" Type="CommandAction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="LogicData.CommandActionParameter" Member="CommandActionParameters">
+    <Type Name="CommandActionParameter">
+      <Column Name="CommandActionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParameterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommandActionParameterOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CommandAction_CommandActionParameter" Member="CommandAction" ThisKey="CommandActionID" OtherKey="CommandActionID" Type="CommandAction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="LogicData.CommandActionDependency" Member="CommandActionDependencies">
+    <Type Name="CommandActionDependency">
+      <Column Name="CommandActionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DependencyID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DependencyOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailResponseMessage" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="Dependency_CommandActionDependency" Member="Dependency" ThisKey="DependencyID" OtherKey="DependencyID" Type="Dependency" IsForeignKey="true" />
+      <Association Name="CommandAction_CommandActionDependency" Member="CommandAction" ThisKey="CommandActionID" OtherKey="CommandActionID" Type="CommandAction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="LogicData.CommandAction" Member="CommandActions">
+    <Type Name="CommandAction" Id="ID1">
+      <Column Name="CommandActionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CommandID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GameID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="SuccessReponseMessage" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="FailResponseMessage" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="CommandAction_CommandActionAction" Member="CommandActionActions" ThisKey="CommandActionID" OtherKey="CommandActionID" Type="CommandActionAction" />
+      <Association Name="CommandAction_CommandActionParameter" Member="CommandActionParameters" ThisKey="CommandActionID" OtherKey="CommandActionID" Type="CommandActionParameter" />
+      <Association Name="CommandAction_CommandActionDependency" Member="CommandActionDependencies" ThisKey="CommandActionID" OtherKey="CommandActionID" Type="CommandActionDependency" />
+      <Association Name="Command_CommandAction" Member="Command" ThisKey="CommandID" OtherKey="CommandID" Type="Command" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="LogicData.GetCommandAction" Method="GetCommandAction">
+    <Parameter Name="CommandTypeId" Parameter="commandTypeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FirstParameterId" Parameter="firstParameterId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="SecondParameterId" Parameter="secondParameterId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ThirdParameterId" Parameter="thirdParameterId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="FourthParameterId" Parameter="fourthParameterId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="GameId" Parameter="gameId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType IdRef="ID1" />
+  </Function>
+</Database>

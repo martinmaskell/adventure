@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LocationData">
+  <DataContextMoniker Name="/LocationDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bfc9aa6c-721a-4f64-959c-fbc60f44b695" absoluteBounds="3.5, 3.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/LocationDataDataContext/LocationItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c433c8f1-e685-4f88-923d-a53459f9d2cb" absoluteBounds="3.515, 4.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2387d3a3-0027-4594-9cc0-e7935e2c430a" absoluteBounds="3.5, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LocationDataDataContext/LocationDirection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df8050e1-4d63-46ee-affb-5b8098471021" absoluteBounds="3.515, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0f4bf64-2d30-4053-b1c1-74c7c1ed165f" absoluteBounds="0.75, 3.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LocationDataDataContext/Location" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4fdc6fee-06dc-4728-ac2e-be4f0763be5b" absoluteBounds="0.765, 4.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="168bcf94-9663-448c-8dd9-5b5233810e6b" absoluteBounds="0.75, 6.5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/LocationDataDataContext/Direction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22464794-99b2-4254-914d-1252f5251a64" absoluteBounds="0.765, 6.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.47199625651042); (3.5 : 4.47199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LocationDataDataContext/Location/Location_LocationItem" />
+      <nodes>
+        <classShapeMoniker Id="f0f4bf64-2d30-4053-b1c1-74c7c1ed165f" />
+        <classShapeMoniker Id="bfc9aa6c-721a-4f64-959c-fbc60f44b695" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 3.625); (1.75 : 1.44314697265625); (3.5 : 1.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LocationDataDataContext/Location/Location_LocationDirection" />
+      <nodes>
+        <classShapeMoniker Id="f0f4bf64-2d30-4053-b1c1-74c7c1ed165f" />
+        <classShapeMoniker Id="2387d3a3-0027-4594-9cc0-e7935e2c430a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 3.625); (2.2812525 : 1.82097295898437); (3.5 : 1.82097295898437)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LocationDataDataContext/Location/Location_LocationDirection1" />
+      <nodes>
+        <classShapeMoniker Id="f0f4bf64-2d30-4053-b1c1-74c7c1ed165f" />
+        <classShapeMoniker Id="2387d3a3-0027-4594-9cc0-e7935e2c430a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.5); (3.125 : 6.125); (3.125 : 1.06532148632813); (3.5 : 1.06532148632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LocationDataDataContext/Direction/Direction_LocationDirection" />
+      <nodes>
+        <classShapeMoniker Id="168bcf94-9663-448c-8dd9-5b5233810e6b" />
+        <classShapeMoniker Id="2387d3a3-0027-4594-9cc0-e7935e2c430a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

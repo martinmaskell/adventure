@@ -1,0 +1,13 @@
+﻿/****** Object:  Table [LookupData].[DependencyType]    Script Date: 10/13/2011 11:34:51 ******/
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (1, N'Location Is Available')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (2, N'Location Is Not Available')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (3, N'Item Is In Inventory')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (4, N'Item Is Not in Inventory')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (5, N'Item Is At Location')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (6, N'Item Is Not At Location')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (7, N'Item Property Value Is Equal To')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (8, N'Item Property Value Is Not Equal To')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (9, N'Item Property Value Is True')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (10, N'Item Property Value Is False')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (11, N'Item Property Value Is Greater Than')
+INSERT [LookupData].[DependencyType] ([DependencyTypeID], [DependencyName]) VALUES (12, N'Item Property Value Is Less Than')

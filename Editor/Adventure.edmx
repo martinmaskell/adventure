@@ -1,0 +1,1211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AdventureModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AdventureModelStoreContainer">
+          <EntitySet Name="Game" EntityType="AdventureModel.Store.Game" store:Type="Tables" Schema="GameData" />
+          <EntitySet Name="Direction" EntityType="AdventureModel.Store.Direction" store:Type="Tables" Schema="LocationData" />
+          <EntitySet Name="Location" EntityType="AdventureModel.Store.Location" store:Type="Tables" Schema="LocationData" />
+          <EntitySet Name="LocationDirection" EntityType="AdventureModel.Store.LocationDirection" store:Type="Tables" Schema="LocationData" />
+          <EntitySet Name="LocationItem" EntityType="AdventureModel.Store.LocationItem" store:Type="Tables" Schema="LocationData" />
+          <EntitySet Name="Command" EntityType="AdventureModel.Store.Command" store:Type="Tables" Schema="LogicData" />
+          <EntitySet Name="CommandAction" EntityType="AdventureModel.Store.CommandAction" store:Type="Tables" Schema="LogicData" />
+          <EntitySet Name="CommandActionAction" EntityType="AdventureModel.Store.CommandActionAction" store:Type="Tables" Schema="LogicData" />
+          <EntitySet Name="CommandActionDependency" EntityType="AdventureModel.Store.CommandActionDependency" store:Type="Tables" Schema="LogicData" />
+          <EntitySet Name="CommandActionParameter" EntityType="AdventureModel.Store.CommandActionParameter" store:Type="Tables" Schema="LogicData" />
+          <EntitySet Name="CommandParameterType" EntityType="AdventureModel.Store.CommandParameterType" store:Type="Tables" Schema="LogicData" />
+          <EntitySet Name="Dependency" EntityType="AdventureModel.Store.Dependency" store:Type="Tables" Schema="LogicData" />
+          <EntitySet Name="Action" EntityType="AdventureModel.Store.Action" store:Type="Tables" Schema="LookupData" />
+          <EntitySet Name="CommandResponseReason" EntityType="AdventureModel.Store.CommandResponseReason" store:Type="Tables" Schema="LookupData" />
+          <EntitySet Name="CommandType" EntityType="AdventureModel.Store.CommandType" store:Type="Tables" Schema="LookupData" />
+          <EntitySet Name="DependencyType" EntityType="AdventureModel.Store.DependencyType" store:Type="Tables" Schema="LookupData" />
+          <EntitySet Name="ParameterType" EntityType="AdventureModel.Store.ParameterType" store:Type="Tables" Schema="LookupData" />
+          <EntitySet Name="PropertyDataType" EntityType="AdventureModel.Store.PropertyDataType" store:Type="Tables" Schema="LookupData" />
+          <AssociationSet Name="FK_Command_CommandType" Association="AdventureModel.Store.FK_Command_CommandType">
+            <End Role="CommandType" EntitySet="CommandType" />
+            <End Role="Command" EntitySet="Command" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandAction_Command" Association="AdventureModel.Store.FK_CommandAction_Command">
+            <End Role="Command" EntitySet="Command" />
+            <End Role="CommandAction" EntitySet="CommandAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandAction_Game" Association="AdventureModel.Store.FK_CommandAction_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="CommandAction" EntitySet="CommandAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionAction_Action" Association="AdventureModel.Store.FK_CommandActionAction_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="CommandActionAction" EntitySet="CommandActionAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionAction_CommandAction" Association="AdventureModel.Store.FK_CommandActionAction_CommandAction">
+            <End Role="CommandAction" EntitySet="CommandAction" />
+            <End Role="CommandActionAction" EntitySet="CommandActionAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionDependency_CommandAction" Association="AdventureModel.Store.FK_CommandActionDependency_CommandAction">
+            <End Role="CommandAction" EntitySet="CommandAction" />
+            <End Role="CommandActionDependency" EntitySet="CommandActionDependency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionDependency_Dependency" Association="AdventureModel.Store.FK_CommandActionDependency_Dependency">
+            <End Role="Dependency" EntitySet="Dependency" />
+            <End Role="CommandActionDependency" EntitySet="CommandActionDependency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionParameter_CommandAction" Association="AdventureModel.Store.FK_CommandActionParameter_CommandAction">
+            <End Role="CommandAction" EntitySet="CommandAction" />
+            <End Role="CommandActionParameter" EntitySet="CommandActionParameter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandParameterType_Command" Association="AdventureModel.Store.FK_CommandParameterType_Command">
+            <End Role="Command" EntitySet="Command" />
+            <End Role="CommandParameterType" EntitySet="CommandParameterType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandParameterType_ParameterType" Association="AdventureModel.Store.FK_CommandParameterType_ParameterType">
+            <End Role="ParameterType" EntitySet="ParameterType" />
+            <End Role="CommandParameterType" EntitySet="CommandParameterType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dependency_DependencyType" Association="AdventureModel.Store.FK_Dependency_DependencyType">
+            <End Role="DependencyType" EntitySet="DependencyType" />
+            <End Role="Dependency" EntitySet="Dependency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Game" Association="AdventureModel.Store.FK_Location_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationDirection_Direction" Association="AdventureModel.Store.FK_LocationDirection_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="LocationDirection" EntitySet="LocationDirection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationDirection_Location" Association="AdventureModel.Store.FK_LocationDirection_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="LocationDirection" EntitySet="LocationDirection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationDirection_Location1" Association="AdventureModel.Store.FK_LocationDirection_Location1">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="LocationDirection" EntitySet="LocationDirection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationItem_Location" Association="AdventureModel.Store.FK_LocationItem_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="LocationItem" EntitySet="LocationItem" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="GameID" />
+          </Key>
+          <Property Name="GameID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OwnerID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="StartLocationID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Direction">
+          <Key>
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Name="DirectionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DirectionName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GameID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LocationName" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="LocationDescription" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocationDirection">
+          <Key>
+            <PropertyRef Name="SourceLocationID" />
+            <PropertyRef Name="TargetLocationID" />
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Name="SourceLocationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TargetLocationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DirectionID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocationItem">
+          <Key>
+            <PropertyRef Name="LocationID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="LocationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Command">
+          <Key>
+            <PropertyRef Name="CommandID" />
+          </Key>
+          <Property Name="CommandID" Type="int" Nullable="false" />
+          <Property Name="CommandTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommandAction">
+          <Key>
+            <PropertyRef Name="CommandActionID" />
+          </Key>
+          <Property Name="CommandActionID" Type="int" Nullable="false" />
+          <Property Name="CommandID" Type="int" Nullable="false" />
+          <Property Name="GameID" Type="uniqueidentifier" />
+          <Property Name="SuccessReponseMessage" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FailResponseMessage" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="CommandActionAction">
+          <Key>
+            <PropertyRef Name="CommandActionID" />
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="CommandActionID" Type="int" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="ActionOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="CommandActionDependency">
+          <Key>
+            <PropertyRef Name="CommandActionID" />
+            <PropertyRef Name="DependencyID" />
+          </Key>
+          <Property Name="CommandActionID" Type="int" Nullable="false" />
+          <Property Name="DependencyID" Type="int" Nullable="false" />
+          <Property Name="DependencyOrder" Type="int" Nullable="false" />
+          <Property Name="FailResponseMessage" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="CommandActionParameter">
+          <Key>
+            <PropertyRef Name="CommandActionID" />
+            <PropertyRef Name="ParameterID" />
+          </Key>
+          <Property Name="CommandActionID" Type="int" Nullable="false" />
+          <Property Name="ParameterID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommandActionParameterOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommandParameterType">
+          <Key>
+            <PropertyRef Name="CommandID" />
+            <PropertyRef Name="ParameterTypeID" />
+          </Key>
+          <Property Name="CommandID" Type="int" Nullable="false" />
+          <Property Name="ParameterTypeID" Type="int" Nullable="false" />
+          <Property Name="CommandParameterOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dependency">
+          <Key>
+            <PropertyRef Name="DependencyID" />
+          </Key>
+          <Property Name="DependencyID" Type="int" Nullable="false" />
+          <Property Name="DependencyTypeID" Type="int" Nullable="false" />
+          <Property Name="DependencyElementID" Type="uniqueidentifier" />
+          <Property Name="DependencyElementKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="DependencyElementValue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="ActionName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CommandResponseReason">
+          <Key>
+            <PropertyRef Name="CommandResponseReasonID" />
+          </Key>
+          <Property Name="CommandResponseReasonID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CommandType">
+          <Key>
+            <PropertyRef Name="CommandTypeID" />
+          </Key>
+          <Property Name="CommandTypeID" Type="int" Nullable="false" />
+          <Property Name="CommandTypeName" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DependencyType">
+          <Key>
+            <PropertyRef Name="DependencyTypeID" />
+          </Key>
+          <Property Name="DependencyTypeID" Type="int" Nullable="false" />
+          <Property Name="DependencyName" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ParameterType">
+          <Key>
+            <PropertyRef Name="ParameterTypeID" />
+          </Key>
+          <Property Name="ParameterTypeID" Type="int" Nullable="false" />
+          <Property Name="ParameterTypeName" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PropertyDataType">
+          <Key>
+            <PropertyRef Name="PropertyDataTypeID" />
+          </Key>
+          <Property Name="PropertyDataTypeID" Type="int" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Command_CommandType">
+          <End Role="CommandType" Type="AdventureModel.Store.CommandType" Multiplicity="1" />
+          <End Role="Command" Type="AdventureModel.Store.Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommandType">
+              <PropertyRef Name="CommandTypeID" />
+            </Principal>
+            <Dependent Role="Command">
+              <PropertyRef Name="CommandTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandAction_Command">
+          <End Role="Command" Type="AdventureModel.Store.Command" Multiplicity="1" />
+          <End Role="CommandAction" Type="AdventureModel.Store.CommandAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="CommandID" />
+            </Principal>
+            <Dependent Role="CommandAction">
+              <PropertyRef Name="CommandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandAction_Game">
+          <End Role="Game" Type="AdventureModel.Store.Game" Multiplicity="0..1" />
+          <End Role="CommandAction" Type="AdventureModel.Store.CommandAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameID" />
+            </Principal>
+            <Dependent Role="CommandAction">
+              <PropertyRef Name="GameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionAction_Action">
+          <End Role="Action" Type="AdventureModel.Store.Action" Multiplicity="1" />
+          <End Role="CommandActionAction" Type="AdventureModel.Store.CommandActionAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ActionID" />
+            </Principal>
+            <Dependent Role="CommandActionAction">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionAction_CommandAction">
+          <End Role="CommandAction" Type="AdventureModel.Store.CommandAction" Multiplicity="1" />
+          <End Role="CommandActionAction" Type="AdventureModel.Store.CommandActionAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommandAction">
+              <PropertyRef Name="CommandActionID" />
+            </Principal>
+            <Dependent Role="CommandActionAction">
+              <PropertyRef Name="CommandActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionDependency_CommandAction">
+          <End Role="CommandAction" Type="AdventureModel.Store.CommandAction" Multiplicity="1" />
+          <End Role="CommandActionDependency" Type="AdventureModel.Store.CommandActionDependency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommandAction">
+              <PropertyRef Name="CommandActionID" />
+            </Principal>
+            <Dependent Role="CommandActionDependency">
+              <PropertyRef Name="CommandActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionDependency_Dependency">
+          <End Role="Dependency" Type="AdventureModel.Store.Dependency" Multiplicity="1" />
+          <End Role="CommandActionDependency" Type="AdventureModel.Store.CommandActionDependency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dependency">
+              <PropertyRef Name="DependencyID" />
+            </Principal>
+            <Dependent Role="CommandActionDependency">
+              <PropertyRef Name="DependencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionParameter_CommandAction">
+          <End Role="CommandAction" Type="AdventureModel.Store.CommandAction" Multiplicity="1" />
+          <End Role="CommandActionParameter" Type="AdventureModel.Store.CommandActionParameter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommandAction">
+              <PropertyRef Name="CommandActionID" />
+            </Principal>
+            <Dependent Role="CommandActionParameter">
+              <PropertyRef Name="CommandActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandParameterType_Command">
+          <End Role="Command" Type="AdventureModel.Store.Command" Multiplicity="1" />
+          <End Role="CommandParameterType" Type="AdventureModel.Store.CommandParameterType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="CommandID" />
+            </Principal>
+            <Dependent Role="CommandParameterType">
+              <PropertyRef Name="CommandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandParameterType_ParameterType">
+          <End Role="ParameterType" Type="AdventureModel.Store.ParameterType" Multiplicity="1" />
+          <End Role="CommandParameterType" Type="AdventureModel.Store.CommandParameterType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParameterType">
+              <PropertyRef Name="ParameterTypeID" />
+            </Principal>
+            <Dependent Role="CommandParameterType">
+              <PropertyRef Name="ParameterTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dependency_DependencyType">
+          <End Role="DependencyType" Type="AdventureModel.Store.DependencyType" Multiplicity="1" />
+          <End Role="Dependency" Type="AdventureModel.Store.Dependency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DependencyType">
+              <PropertyRef Name="DependencyTypeID" />
+            </Principal>
+            <Dependent Role="Dependency">
+              <PropertyRef Name="DependencyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_Game">
+          <End Role="Game" Type="AdventureModel.Store.Game" Multiplicity="1" />
+          <End Role="Location" Type="AdventureModel.Store.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="GameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationDirection_Direction">
+          <End Role="Direction" Type="AdventureModel.Store.Direction" Multiplicity="1" />
+          <End Role="LocationDirection" Type="AdventureModel.Store.LocationDirection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="LocationDirection">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationDirection_Location">
+          <End Role="Location" Type="AdventureModel.Store.Location" Multiplicity="1" />
+          <End Role="LocationDirection" Type="AdventureModel.Store.LocationDirection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="LocationDirection">
+              <PropertyRef Name="SourceLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationDirection_Location1">
+          <End Role="Location" Type="AdventureModel.Store.Location" Multiplicity="1" />
+          <End Role="LocationDirection" Type="AdventureModel.Store.LocationDirection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="LocationDirection">
+              <PropertyRef Name="TargetLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationItem_Location">
+          <End Role="Location" Type="AdventureModel.Store.Location" Multiplicity="1" />
+          <End Role="LocationItem" Type="AdventureModel.Store.LocationItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="LocationItem">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdventureModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AdventureEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Games" EntityType="AdventureModel.Game" />
+          <EntitySet Name="Directions" EntityType="AdventureModel.Direction" />
+          <EntitySet Name="Locations" EntityType="AdventureModel.Location" />
+          <EntitySet Name="LocationDirections" EntityType="AdventureModel.LocationDirection" />
+          <EntitySet Name="LocationItems" EntityType="AdventureModel.LocationItem" />
+          <EntitySet Name="Commands" EntityType="AdventureModel.Command" />
+          <EntitySet Name="CommandActions" EntityType="AdventureModel.CommandAction" />
+          <EntitySet Name="CommandActionActions" EntityType="AdventureModel.CommandActionAction" />
+          <EntitySet Name="CommandActionDependencies" EntityType="AdventureModel.CommandActionDependency" />
+          <EntitySet Name="CommandActionParameters" EntityType="AdventureModel.CommandActionParameter" />
+          <EntitySet Name="CommandParameterTypes" EntityType="AdventureModel.CommandParameterType" />
+          <EntitySet Name="Dependencies" EntityType="AdventureModel.Dependency" />
+          <EntitySet Name="Actions" EntityType="AdventureModel.Action" />
+          <EntitySet Name="CommandResponseReasons" EntityType="AdventureModel.CommandResponseReason" />
+          <EntitySet Name="CommandTypes" EntityType="AdventureModel.CommandType" />
+          <EntitySet Name="DependencyTypes" EntityType="AdventureModel.DependencyType" />
+          <EntitySet Name="ParameterTypes" EntityType="AdventureModel.ParameterType" />
+          <EntitySet Name="PropertyDataTypes" EntityType="AdventureModel.PropertyDataType" />
+          <AssociationSet Name="FK_CommandAction_Game" Association="AdventureModel.FK_CommandAction_Game">
+            <End Role="Game" EntitySet="Games" />
+            <End Role="CommandAction" EntitySet="CommandActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Game" Association="AdventureModel.FK_Location_Game">
+            <End Role="Game" EntitySet="Games" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationDirection_Direction" Association="AdventureModel.FK_LocationDirection_Direction">
+            <End Role="Direction" EntitySet="Directions" />
+            <End Role="LocationDirection" EntitySet="LocationDirections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationDirection_Location" Association="AdventureModel.FK_LocationDirection_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="LocationDirection" EntitySet="LocationDirections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationDirection_Location1" Association="AdventureModel.FK_LocationDirection_Location1">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="LocationDirection" EntitySet="LocationDirections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationItem_Location" Association="AdventureModel.FK_LocationItem_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="LocationItem" EntitySet="LocationItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Command_CommandType" Association="AdventureModel.FK_Command_CommandType">
+            <End Role="CommandType" EntitySet="CommandTypes" />
+            <End Role="Command" EntitySet="Commands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandAction_Command" Association="AdventureModel.FK_CommandAction_Command">
+            <End Role="Command" EntitySet="Commands" />
+            <End Role="CommandAction" EntitySet="CommandActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandParameterType_Command" Association="AdventureModel.FK_CommandParameterType_Command">
+            <End Role="Command" EntitySet="Commands" />
+            <End Role="CommandParameterType" EntitySet="CommandParameterTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionAction_CommandAction" Association="AdventureModel.FK_CommandActionAction_CommandAction">
+            <End Role="CommandAction" EntitySet="CommandActions" />
+            <End Role="CommandActionAction" EntitySet="CommandActionActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionDependency_CommandAction" Association="AdventureModel.FK_CommandActionDependency_CommandAction">
+            <End Role="CommandAction" EntitySet="CommandActions" />
+            <End Role="CommandActionDependency" EntitySet="CommandActionDependencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionParameter_CommandAction" Association="AdventureModel.FK_CommandActionParameter_CommandAction">
+            <End Role="CommandAction" EntitySet="CommandActions" />
+            <End Role="CommandActionParameter" EntitySet="CommandActionParameters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionAction_Action" Association="AdventureModel.FK_CommandActionAction_Action">
+            <End Role="Action" EntitySet="Actions" />
+            <End Role="CommandActionAction" EntitySet="CommandActionActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandActionDependency_Dependency" Association="AdventureModel.FK_CommandActionDependency_Dependency">
+            <End Role="Dependency" EntitySet="Dependencies" />
+            <End Role="CommandActionDependency" EntitySet="CommandActionDependencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandParameterType_ParameterType" Association="AdventureModel.FK_CommandParameterType_ParameterType">
+            <End Role="ParameterType" EntitySet="ParameterTypes" />
+            <End Role="CommandParameterType" EntitySet="CommandParameterTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dependency_DependencyType" Association="AdventureModel.FK_Dependency_DependencyType">
+            <End Role="DependencyType" EntitySet="DependencyTypes" />
+            <End Role="Dependency" EntitySet="Dependencies" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="GameID" />
+          </Key>
+          <Property Name="GameID" Type="Guid" Nullable="false" />
+          <Property Name="OwnerID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+          <Property Name="StartLocationID" Type="Guid" />
+          <NavigationProperty Name="CommandActions" Relationship="AdventureModel.FK_CommandAction_Game" FromRole="Game" ToRole="CommandAction" />
+          <NavigationProperty Name="Locations" Relationship="AdventureModel.FK_Location_Game" FromRole="Game" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Direction">
+          <Key>
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Name="DirectionID" Type="Guid" Nullable="false" />
+          <Property Name="DirectionName" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="ShortName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="LocationDirections" Relationship="AdventureModel.FK_LocationDirection_Direction" FromRole="Direction" ToRole="LocationDirection" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Guid" Nullable="false" />
+          <Property Name="GameID" Type="Guid" Nullable="false" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="LocationDescription" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Game" Relationship="AdventureModel.FK_Location_Game" FromRole="Location" ToRole="Game" />
+          <NavigationProperty Name="LocationDirections" Relationship="AdventureModel.FK_LocationDirection_Location" FromRole="Location" ToRole="LocationDirection" />
+          <NavigationProperty Name="LocationDirections1" Relationship="AdventureModel.FK_LocationDirection_Location1" FromRole="Location" ToRole="LocationDirection" />
+          <NavigationProperty Name="LocationItems" Relationship="AdventureModel.FK_LocationItem_Location" FromRole="Location" ToRole="LocationItem" />
+        </EntityType>
+        <EntityType Name="LocationDirection">
+          <Key>
+            <PropertyRef Name="SourceLocationID" />
+            <PropertyRef Name="TargetLocationID" />
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Name="SourceLocationID" Type="Guid" Nullable="false" />
+          <Property Name="TargetLocationID" Type="Guid" Nullable="false" />
+          <Property Name="DirectionID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Direction" Relationship="AdventureModel.FK_LocationDirection_Direction" FromRole="LocationDirection" ToRole="Direction" />
+          <NavigationProperty Name="Location" Relationship="AdventureModel.FK_LocationDirection_Location" FromRole="LocationDirection" ToRole="Location" />
+          <NavigationProperty Name="Location1" Relationship="AdventureModel.FK_LocationDirection_Location1" FromRole="LocationDirection" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="LocationItem">
+          <Key>
+            <PropertyRef Name="LocationID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="LocationID" Type="Guid" Nullable="false" />
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="AdventureModel.FK_LocationItem_Location" FromRole="LocationItem" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Command">
+          <Key>
+            <PropertyRef Name="CommandID" />
+          </Key>
+          <Property Name="CommandID" Type="Int32" Nullable="false" />
+          <Property Name="CommandTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CommandType" Relationship="AdventureModel.FK_Command_CommandType" FromRole="Command" ToRole="CommandType" />
+          <NavigationProperty Name="CommandActions" Relationship="AdventureModel.FK_CommandAction_Command" FromRole="Command" ToRole="CommandAction" />
+          <NavigationProperty Name="CommandParameterTypes" Relationship="AdventureModel.FK_CommandParameterType_Command" FromRole="Command" ToRole="CommandParameterType" />
+        </EntityType>
+        <EntityType Name="CommandAction">
+          <Key>
+            <PropertyRef Name="CommandActionID" />
+          </Key>
+          <Property Name="CommandActionID" Type="Int32" Nullable="false" />
+          <Property Name="CommandID" Type="Int32" Nullable="false" />
+          <Property Name="GameID" Type="Guid" />
+          <Property Name="SuccessReponseMessage" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="FailResponseMessage" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Game" Relationship="AdventureModel.FK_CommandAction_Game" FromRole="CommandAction" ToRole="Game" />
+          <NavigationProperty Name="Command" Relationship="AdventureModel.FK_CommandAction_Command" FromRole="CommandAction" ToRole="Command" />
+          <NavigationProperty Name="CommandActionActions" Relationship="AdventureModel.FK_CommandActionAction_CommandAction" FromRole="CommandAction" ToRole="CommandActionAction" />
+          <NavigationProperty Name="CommandActionDependencies" Relationship="AdventureModel.FK_CommandActionDependency_CommandAction" FromRole="CommandAction" ToRole="CommandActionDependency" />
+          <NavigationProperty Name="CommandActionParameters" Relationship="AdventureModel.FK_CommandActionParameter_CommandAction" FromRole="CommandAction" ToRole="CommandActionParameter" />
+        </EntityType>
+        <EntityType Name="CommandActionAction">
+          <Key>
+            <PropertyRef Name="CommandActionID" />
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="CommandActionID" Type="Int32" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="ActionOrder" Type="Int32" />
+          <NavigationProperty Name="CommandAction" Relationship="AdventureModel.FK_CommandActionAction_CommandAction" FromRole="CommandActionAction" ToRole="CommandAction" />
+          <NavigationProperty Name="Action" Relationship="AdventureModel.FK_CommandActionAction_Action" FromRole="CommandActionAction" ToRole="Action" />
+        </EntityType>
+        <EntityType Name="CommandActionDependency">
+          <Key>
+            <PropertyRef Name="CommandActionID" />
+            <PropertyRef Name="DependencyID" />
+          </Key>
+          <Property Name="CommandActionID" Type="Int32" Nullable="false" />
+          <Property Name="DependencyID" Type="Int32" Nullable="false" />
+          <Property Name="DependencyOrder" Type="Int32" Nullable="false" />
+          <Property Name="FailResponseMessage" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CommandAction" Relationship="AdventureModel.FK_CommandActionDependency_CommandAction" FromRole="CommandActionDependency" ToRole="CommandAction" />
+          <NavigationProperty Name="Dependency" Relationship="AdventureModel.FK_CommandActionDependency_Dependency" FromRole="CommandActionDependency" ToRole="Dependency" />
+        </EntityType>
+        <EntityType Name="CommandActionParameter">
+          <Key>
+            <PropertyRef Name="CommandActionID" />
+            <PropertyRef Name="ParameterID" />
+          </Key>
+          <Property Name="CommandActionID" Type="Int32" Nullable="false" />
+          <Property Name="ParameterID" Type="Guid" Nullable="false" />
+          <Property Name="CommandActionParameterOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CommandAction" Relationship="AdventureModel.FK_CommandActionParameter_CommandAction" FromRole="CommandActionParameter" ToRole="CommandAction" />
+        </EntityType>
+        <EntityType Name="CommandParameterType">
+          <Key>
+            <PropertyRef Name="CommandID" />
+            <PropertyRef Name="ParameterTypeID" />
+          </Key>
+          <Property Name="CommandID" Type="Int32" Nullable="false" />
+          <Property Name="ParameterTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CommandParameterOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Command" Relationship="AdventureModel.FK_CommandParameterType_Command" FromRole="CommandParameterType" ToRole="Command" />
+          <NavigationProperty Name="ParameterType" Relationship="AdventureModel.FK_CommandParameterType_ParameterType" FromRole="CommandParameterType" ToRole="ParameterType" />
+        </EntityType>
+        <EntityType Name="Dependency">
+          <Key>
+            <PropertyRef Name="DependencyID" />
+          </Key>
+          <Property Name="DependencyID" Type="Int32" Nullable="false" />
+          <Property Name="DependencyTypeID" Type="Int32" Nullable="false" />
+          <Property Name="DependencyElementID" Type="Guid" />
+          <Property Name="DependencyElementKey" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DependencyElementValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CommandActionDependencies" Relationship="AdventureModel.FK_CommandActionDependency_Dependency" FromRole="Dependency" ToRole="CommandActionDependency" />
+          <NavigationProperty Name="DependencyType" Relationship="AdventureModel.FK_Dependency_DependencyType" FromRole="Dependency" ToRole="DependencyType" />
+        </EntityType>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="ActionName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CommandActionActions" Relationship="AdventureModel.FK_CommandActionAction_Action" FromRole="Action" ToRole="CommandActionAction" />
+        </EntityType>
+        <EntityType Name="CommandResponseReason">
+          <Key>
+            <PropertyRef Name="CommandResponseReasonID" />
+          </Key>
+          <Property Name="CommandResponseReasonID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CommandType">
+          <Key>
+            <PropertyRef Name="CommandTypeID" />
+          </Key>
+          <Property Name="CommandTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CommandTypeName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Commands" Relationship="AdventureModel.FK_Command_CommandType" FromRole="CommandType" ToRole="Command" />
+        </EntityType>
+        <EntityType Name="DependencyType">
+          <Key>
+            <PropertyRef Name="DependencyTypeID" />
+          </Key>
+          <Property Name="DependencyTypeID" Type="Int32" Nullable="false" />
+          <Property Name="DependencyName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Dependencies" Relationship="AdventureModel.FK_Dependency_DependencyType" FromRole="DependencyType" ToRole="Dependency" />
+        </EntityType>
+        <EntityType Name="ParameterType">
+          <Key>
+            <PropertyRef Name="ParameterTypeID" />
+          </Key>
+          <Property Name="ParameterTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ParameterTypeName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CommandParameterTypes" Relationship="AdventureModel.FK_CommandParameterType_ParameterType" FromRole="ParameterType" ToRole="CommandParameterType" />
+        </EntityType>
+        <EntityType Name="PropertyDataType">
+          <Key>
+            <PropertyRef Name="PropertyDataTypeID" />
+          </Key>
+          <Property Name="PropertyDataTypeID" Type="Int32" Nullable="false" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_CommandAction_Game">
+          <End Role="Game" Type="AdventureModel.Game" Multiplicity="0..1" />
+          <End Role="CommandAction" Type="AdventureModel.CommandAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameID" />
+            </Principal>
+            <Dependent Role="CommandAction">
+              <PropertyRef Name="GameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_Game">
+          <End Role="Game" Type="AdventureModel.Game" Multiplicity="1" />
+          <End Role="Location" Type="AdventureModel.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="GameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationDirection_Direction">
+          <End Role="Direction" Type="AdventureModel.Direction" Multiplicity="1" />
+          <End Role="LocationDirection" Type="AdventureModel.LocationDirection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="LocationDirection">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationDirection_Location">
+          <End Role="Location" Type="AdventureModel.Location" Multiplicity="1" />
+          <End Role="LocationDirection" Type="AdventureModel.LocationDirection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="LocationDirection">
+              <PropertyRef Name="SourceLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationDirection_Location1">
+          <End Role="Location" Type="AdventureModel.Location" Multiplicity="1" />
+          <End Role="LocationDirection" Type="AdventureModel.LocationDirection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="LocationDirection">
+              <PropertyRef Name="TargetLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationItem_Location">
+          <End Role="Location" Type="AdventureModel.Location" Multiplicity="1" />
+          <End Role="LocationItem" Type="AdventureModel.LocationItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="LocationItem">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Command_CommandType">
+          <End Role="CommandType" Type="AdventureModel.CommandType" Multiplicity="1" />
+          <End Role="Command" Type="AdventureModel.Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommandType">
+              <PropertyRef Name="CommandTypeID" />
+            </Principal>
+            <Dependent Role="Command">
+              <PropertyRef Name="CommandTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandAction_Command">
+          <End Role="Command" Type="AdventureModel.Command" Multiplicity="1" />
+          <End Role="CommandAction" Type="AdventureModel.CommandAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="CommandID" />
+            </Principal>
+            <Dependent Role="CommandAction">
+              <PropertyRef Name="CommandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandParameterType_Command">
+          <End Role="Command" Type="AdventureModel.Command" Multiplicity="1" />
+          <End Role="CommandParameterType" Type="AdventureModel.CommandParameterType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="CommandID" />
+            </Principal>
+            <Dependent Role="CommandParameterType">
+              <PropertyRef Name="CommandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionAction_CommandAction">
+          <End Role="CommandAction" Type="AdventureModel.CommandAction" Multiplicity="1" />
+          <End Role="CommandActionAction" Type="AdventureModel.CommandActionAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommandAction">
+              <PropertyRef Name="CommandActionID" />
+            </Principal>
+            <Dependent Role="CommandActionAction">
+              <PropertyRef Name="CommandActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionDependency_CommandAction">
+          <End Role="CommandAction" Type="AdventureModel.CommandAction" Multiplicity="1" />
+          <End Role="CommandActionDependency" Type="AdventureModel.CommandActionDependency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommandAction">
+              <PropertyRef Name="CommandActionID" />
+            </Principal>
+            <Dependent Role="CommandActionDependency">
+              <PropertyRef Name="CommandActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionParameter_CommandAction">
+          <End Role="CommandAction" Type="AdventureModel.CommandAction" Multiplicity="1" />
+          <End Role="CommandActionParameter" Type="AdventureModel.CommandActionParameter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommandAction">
+              <PropertyRef Name="CommandActionID" />
+            </Principal>
+            <Dependent Role="CommandActionParameter">
+              <PropertyRef Name="CommandActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionAction_Action">
+          <End Role="Action" Type="AdventureModel.Action" Multiplicity="1" />
+          <End Role="CommandActionAction" Type="AdventureModel.CommandActionAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ActionID" />
+            </Principal>
+            <Dependent Role="CommandActionAction">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandActionDependency_Dependency">
+          <End Role="Dependency" Type="AdventureModel.Dependency" Multiplicity="1" />
+          <End Role="CommandActionDependency" Type="AdventureModel.CommandActionDependency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dependency">
+              <PropertyRef Name="DependencyID" />
+            </Principal>
+            <Dependent Role="CommandActionDependency">
+              <PropertyRef Name="DependencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandParameterType_ParameterType">
+          <End Role="ParameterType" Type="AdventureModel.ParameterType" Multiplicity="1" />
+          <End Role="CommandParameterType" Type="AdventureModel.CommandParameterType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParameterType">
+              <PropertyRef Name="ParameterTypeID" />
+            </Principal>
+            <Dependent Role="CommandParameterType">
+              <PropertyRef Name="ParameterTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dependency_DependencyType">
+          <End Role="DependencyType" Type="AdventureModel.DependencyType" Multiplicity="1" />
+          <End Role="Dependency" Type="AdventureModel.Dependency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DependencyType">
+              <PropertyRef Name="DependencyTypeID" />
+            </Principal>
+            <Dependent Role="Dependency">
+              <PropertyRef Name="DependencyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdventureModelStoreContainer" CdmEntityContainer="AdventureEntities">
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="AdventureModel.Game">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="GameID" ColumnName="GameID" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="StartLocationID" ColumnName="StartLocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Directions">
+            <EntityTypeMapping TypeName="AdventureModel.Direction">
+              <MappingFragment StoreEntitySet="Direction">
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="DirectionName" ColumnName="DirectionName" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="AdventureModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="GameID" ColumnName="GameID" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationDescription" ColumnName="LocationDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationDirections">
+            <EntityTypeMapping TypeName="AdventureModel.LocationDirection">
+              <MappingFragment StoreEntitySet="LocationDirection">
+                <ScalarProperty Name="SourceLocationID" ColumnName="SourceLocationID" />
+                <ScalarProperty Name="TargetLocationID" ColumnName="TargetLocationID" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationItems">
+            <EntityTypeMapping TypeName="AdventureModel.LocationItem">
+              <MappingFragment StoreEntitySet="LocationItem">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commands">
+            <EntityTypeMapping TypeName="AdventureModel.Command">
+              <MappingFragment StoreEntitySet="Command">
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="CommandTypeID" ColumnName="CommandTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandActions">
+            <EntityTypeMapping TypeName="AdventureModel.CommandAction">
+              <MappingFragment StoreEntitySet="CommandAction">
+                <ScalarProperty Name="CommandActionID" ColumnName="CommandActionID" />
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="GameID" ColumnName="GameID" />
+                <ScalarProperty Name="SuccessReponseMessage" ColumnName="SuccessReponseMessage" />
+                <ScalarProperty Name="FailResponseMessage" ColumnName="FailResponseMessage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandActionActions">
+            <EntityTypeMapping TypeName="AdventureModel.CommandActionAction">
+              <MappingFragment StoreEntitySet="CommandActionAction">
+                <ScalarProperty Name="CommandActionID" ColumnName="CommandActionID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="ActionOrder" ColumnName="ActionOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandActionDependencies">
+            <EntityTypeMapping TypeName="AdventureModel.CommandActionDependency">
+              <MappingFragment StoreEntitySet="CommandActionDependency">
+                <ScalarProperty Name="CommandActionID" ColumnName="CommandActionID" />
+                <ScalarProperty Name="DependencyID" ColumnName="DependencyID" />
+                <ScalarProperty Name="DependencyOrder" ColumnName="DependencyOrder" />
+                <ScalarProperty Name="FailResponseMessage" ColumnName="FailResponseMessage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandActionParameters">
+            <EntityTypeMapping TypeName="AdventureModel.CommandActionParameter">
+              <MappingFragment StoreEntitySet="CommandActionParameter">
+                <ScalarProperty Name="CommandActionID" ColumnName="CommandActionID" />
+                <ScalarProperty Name="ParameterID" ColumnName="ParameterID" />
+                <ScalarProperty Name="CommandActionParameterOrder" ColumnName="CommandActionParameterOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandParameterTypes">
+            <EntityTypeMapping TypeName="AdventureModel.CommandParameterType">
+              <MappingFragment StoreEntitySet="CommandParameterType">
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="ParameterTypeID" ColumnName="ParameterTypeID" />
+                <ScalarProperty Name="CommandParameterOrder" ColumnName="CommandParameterOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dependencies">
+            <EntityTypeMapping TypeName="AdventureModel.Dependency">
+              <MappingFragment StoreEntitySet="Dependency">
+                <ScalarProperty Name="DependencyID" ColumnName="DependencyID" />
+                <ScalarProperty Name="DependencyTypeID" ColumnName="DependencyTypeID" />
+                <ScalarProperty Name="DependencyElementID" ColumnName="DependencyElementID" />
+                <ScalarProperty Name="DependencyElementKey" ColumnName="DependencyElementKey" />
+                <ScalarProperty Name="DependencyElementValue" ColumnName="DependencyElementValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Actions">
+            <EntityTypeMapping TypeName="AdventureModel.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandResponseReasons">
+            <EntityTypeMapping TypeName="AdventureModel.CommandResponseReason">
+              <MappingFragment StoreEntitySet="CommandResponseReason">
+                <ScalarProperty Name="CommandResponseReasonID" ColumnName="CommandResponseReasonID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandTypes">
+            <EntityTypeMapping TypeName="AdventureModel.CommandType">
+              <MappingFragment StoreEntitySet="CommandType">
+                <ScalarProperty Name="CommandTypeID" ColumnName="CommandTypeID" />
+                <ScalarProperty Name="CommandTypeName" ColumnName="CommandTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DependencyTypes">
+            <EntityTypeMapping TypeName="AdventureModel.DependencyType">
+              <MappingFragment StoreEntitySet="DependencyType">
+                <ScalarProperty Name="DependencyTypeID" ColumnName="DependencyTypeID" />
+                <ScalarProperty Name="DependencyName" ColumnName="DependencyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParameterTypes">
+            <EntityTypeMapping TypeName="AdventureModel.ParameterType">
+              <MappingFragment StoreEntitySet="ParameterType">
+                <ScalarProperty Name="ParameterTypeID" ColumnName="ParameterTypeID" />
+                <ScalarProperty Name="ParameterTypeName" ColumnName="ParameterTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyDataTypes">
+            <EntityTypeMapping TypeName="AdventureModel.PropertyDataType">
+              <MappingFragment StoreEntitySet="PropertyDataType">
+                <ScalarProperty Name="PropertyDataTypeID" ColumnName="PropertyDataTypeID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Adventure">
+        <EntityTypeShape EntityType="AdventureModel.Game" Width="1.5" PointX="0.75" PointY="8.375" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.Direction" Width="1.5" PointX="3" PointY="17.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.Location" Width="1.5" PointX="3" PointY="8.375" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.LocationDirection" Width="1.5" PointX="5.25" PointY="8.5" Height="2.1725878906250014" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.LocationItem" Width="1.5" PointX="5.25" PointY="11.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.Command" Width="1.5" PointX="0.75" PointY="4.625" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.CommandAction" Width="1.5" PointX="3" PointY="4.125" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.CommandActionAction" Width="1.5" PointX="5.25" PointY="4.625" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.CommandActionDependency" Width="2.5" PointX="5.25" PointY="1.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.CommandActionParameter" Width="1.5" PointX="5.25" PointY="14.375" Height="1.787985026041671" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.CommandParameterType" Width="1.5" PointX="8" PointY="4.625" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.Dependency" Width="1.5" PointX="3" PointY="0.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.Action" Width="1.5" PointX="3" PointY="14.875" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.CommandResponseReason" Width="1.5" PointX="7.75" PointY="10.625" Height="1.4033821614583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.CommandType" Width="1.5" PointX="1.5" PointY="11.875" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.DependencyType" Width="1.5" PointX="0.75" PointY="2.25" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.ParameterType" Width="1.5" PointX="5.75" PointY="17.875" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureModel.PropertyDataType" Width="1.5" PointX="9.75" PointY="7.625" Height="1.4033821614583397" IsExpanded="true" />
+        <AssociationConnector Association="AdventureModel.FK_CommandAction_Game" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.3761528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="8.0011528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="5.5958968098958337" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="5.5958968098958328" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="5.5958968098958337" />
+          <ConnectorPoint PointX="3" PointY="5.5958968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_Location_Game" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.6854243006810883" />
+          <ConnectorPoint PointX="2.6979166666666665" PointY="9.6854243006810883" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="9.6854243006810883" />
+          <ConnectorPoint PointX="3" PointY="9.6854243006810883" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_LocationDirection_Direction" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="17.751152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="17.376152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="9.5862939453125016" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="9.5862939453125016" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="9.5862939453125016" />
+          <ConnectorPoint PointX="5.25" PointY="9.5862939453125016" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_LocationDirection_Location" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.98064697265625" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="8.980646972656249" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="8.98064697265625" />
+          <ConnectorPoint PointX="5.25" PointY="8.98064697265625" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_LocationDirection_Location1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="10.191940917968752" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="10.191940917968751" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="10.191940917968752" />
+          <ConnectorPoint PointX="5.25" PointY="10.191940917968752" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_LocationItem_Location" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.78125" PointY="10.932190755208332" />
+          <ConnectorPoint PointX="3.78125" PointY="12.547841796875" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="12.547841796874998" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="12.547841796875" />
+          <ConnectorPoint PointX="5.25" PointY="12.547841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_Command_CommandType" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.78125" PointY="11.875" />
+          <ConnectorPoint PointX="2.78125" PointY="6.1005911341145822" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="6.1005911341145813" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="6.1005911341145822" />
+          <ConnectorPoint PointX="2.25" PointY="6.1005911341145822" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_CommandAction_Command" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.0479484049479169" />
+          <ConnectorPoint PointX="3" PointY="5.0479484049479169" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_CommandParameterType_Command" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.1104489049479174" />
+          <ConnectorPoint PointX="2.75" PointY="5.1104489049479174" />
+          <ConnectorPoint PointX="2.75" PointY="7.3167936197916674" />
+          <ConnectorPoint PointX="4.72897535897436" PointY="7.3167936197916665" />
+          <ConnectorPoint PointX="5.0208333333333321" PointY="7.3167936197916674" />
+          <ConnectorPoint PointX="8.75" PointY="7.3167936197916674" />
+          <ConnectorPoint PointX="8.75" PointY="6.6052864583333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_CommandActionAction_CommandAction" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.6151432291666659" />
+          <ConnectorPoint PointX="5.25" PointY="5.6151432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_CommandActionDependency_CommandAction" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.34375" />
+          <ConnectorPoint PointX="7.21875" PointY="4.34375" />
+          <ConnectorPoint PointX="7.21875" PointY="3.6725878906249996" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_CommandActionParameter_CommandAction" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.0044849274839747" />
+          <ConnectorPoint PointX="4.8785744349011217" PointY="7.3830593623850955" />
+          <ConnectorPoint PointX="4.9964255650988791" PointY="7.5009104925828538" />
+          <ConnectorPoint PointX="5.0625" PointY="7.5669849274839747" />
+          <ConnectorPoint PointX="5.0625" PointY="15.268992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="15.268992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_CommandActionAction_Action" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.938460538461539" />
+          <ConnectorPoint PointX="4.8160744349011209" PointY="14.62238610356042" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="14.504534973362663" />
+          <ConnectorPoint PointX="4.9375" PointY="14.500960538461541" />
+          <ConnectorPoint PointX="4.9375" PointY="6.1414668437499991" />
+          <ConnectorPoint PointX="5.25" PointY="6.1414668437499991" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_CommandActionDependency_Dependency" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.3074446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="2.3074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_CommandParameterType_ParameterType" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="18.672841796875" />
+          <ConnectorPoint PointX="9.40625" PointY="18.672841796875" />
+          <ConnectorPoint PointX="9.40625" PointY="6.6052864583333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureModel.FK_Dependency_DependencyType" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.6824446614583337" />
+          <ConnectorPoint PointX="3" PointY="2.6824446614583337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

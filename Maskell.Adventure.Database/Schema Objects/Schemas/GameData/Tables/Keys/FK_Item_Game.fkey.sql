@@ -1,0 +1,3 @@
+﻿ALTER TABLE [GameData].[Item]
+    ADD CONSTRAINT [FK_Item_Game] FOREIGN KEY ([GameID]) REFERENCES [GameData].[Game] ([GameID]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
